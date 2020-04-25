@@ -6,5 +6,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'ng2020';
+
+  public logo = 'assets/img/logo.png'
+
+
 }
