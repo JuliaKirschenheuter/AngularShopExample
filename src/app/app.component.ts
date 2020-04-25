@@ -10,4 +10,5 @@ export class AppComponent {
   public logo = 'assets/img/logo.png'
 
 
+  public text = ''
 }

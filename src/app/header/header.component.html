@@ -20,7 +20,7 @@
         </div>
         <div class="col-lg-6">
           <div class="search">
-            <input class="search__input"
+            <input class="search__input" (input)="searchBy($event)"
                    placeholder="Более 1000 товаров" type="text">
             <button class="search__button"><i class="fas fa-search"></i>
             </button>

@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 
 @Component({
   selector: 'app-header',
@@ -14,6 +14,13 @@ export class HeaderComponent implements OnInit {
 
   @Input()
   public logo = '';
+
+  @Output()
+  public search: EventEmitter<string> = new EventEmitter();
+
+  public searchBy({target}: Event): void {
+    this.search.emit((target as HTMLInputElement).value);
+  }
 
 
 }
