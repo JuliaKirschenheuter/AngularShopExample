@@ -3,7 +3,7 @@
     <div class="catalogItem__img">
       <img [src]="product.src"/>
     </div>
-    <div class="catalogItem__name">{{product.title}}</div>
+    <div [ngClass]="{'oddItem': isOdd}" class="catalogItem__name">{{product.title}}</div>
     <div class="catalogItem__code">Артикул: {{product.serial}}</div>
     <div class="catalogItem__brand">Бренд: {{product.author}}</div>
     <div class="catalogItem__prices">Цена:  <strong>{{product.price | number: '1.0-0'}}</strong>

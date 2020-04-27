@@ -16,4 +16,10 @@ export class CartComponent implements OnInit {
   @Input()
   public product: IProduct;
 
+  @Input()
+  public position: number;
+
+  @Input()
+  public isOdd: boolean;
+
 }

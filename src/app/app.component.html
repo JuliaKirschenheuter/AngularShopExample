@@ -80,7 +80,9 @@
          *ngIf="products | async  as products;
          else loadingGif">
         <app-cart
-          *ngFor="let product of products"
+          *ngFor="let product of products; index as i; odd as isOdd"
+          [position] = "i+1"
+          [isOdd] = "isOdd"
           [product]="product">
         </app-cart>
     </div>
