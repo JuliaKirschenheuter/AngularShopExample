@@ -73,4 +73,20 @@
   </div>
 </app-header>
 
-<pre *ngIf="products | async  as products">{{products | json}}</pre>
+
+<section class="main">
+  <div class="container">
+    <div class="row"
+         *ngIf="products | async  as products;
+         else loadingGif">
+        <app-cart
+          *ngFor="let product of products"
+          [product]="product">
+        </app-cart>
+    </div>
+  </div>
+</section>
+
+<ng-template #loadingGif>
+  ...loading
+</ng-template>
