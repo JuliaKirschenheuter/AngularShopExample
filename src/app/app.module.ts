@@ -6,13 +6,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './header/header.component';
 import { CartComponent } from './cart/cart.component';
 import { ProductsFilterPipe } from './products-filter.pipe';
+import { ToUsdPipe } from './to-usd.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     CartComponent,
-    ProductsFilterPipe
+    ProductsFilterPipe,
+    ToUsdPipe
   ],
   imports: [
     BrowserModule,

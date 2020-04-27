@@ -6,7 +6,7 @@
     <div [ngClass]="{'oddItem': isOdd}" class="catalogItem__name">{{product.title}}</div>
     <div class="catalogItem__code">Артикул: {{product.serial}}</div>
     <div class="catalogItem__brand">Бренд: {{product.author}}</div>
-    <div class="catalogItem__prices">Цена:  <strong>{{product.price | number: '1.0-0'}}</strong>
+    <div class="catalogItem__prices">Цена:  <strong>{{product.price | toUsd: 66 | number: '1.0-0'}}</strong>
       <span class="tooltiptext open">Эквив. ~150$</span>
     </div>
     <button class="catalogItem__btn"> Заказать</button>
