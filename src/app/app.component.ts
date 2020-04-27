@@ -9,9 +9,8 @@ import {Subject} from "rxjs";
 })
 export class AppComponent {
   public logo = 'assets/img/logo.png';
-  public products = data$;
-  public subscription;
-  public control$$ = new Subject();
+  public text = '';
 
+  public products = data$;
 
 }

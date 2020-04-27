@@ -13,6 +13,8 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  
+
   @Input()
   public product: IProduct;
 

@@ -1,5 +1,5 @@
-<app-header>
-  <img class="site-logo" [src]="logo"/>
+<app-header (search)="text = $event">
+  <img class="site-logo" [src]="logo" />
 
   <div class="col-lg-3 d-flex justify-content-end">
     <div class="cartCell">
@@ -79,8 +79,7 @@
     <div class="row"
          *ngIf="products | async  as products;
          else loadingGif">
-        <app-cart
-          *ngFor="let product of products; index as i; odd as isOdd"
+      <app-cart *ngFor=" let product of products | productsFilter: text; index as i; odd as isOdd "
           [position] = "i+1"
           [isOdd] = "isOdd"
           [product]="product">
