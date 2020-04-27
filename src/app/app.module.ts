@@ -7,6 +7,7 @@ import { HeaderComponent } from './header/header.component';
 import { CartComponent } from './cart/cart.component';
 import { ProductsFilterPipe } from './products-filter.pipe';
 import { ToUsdPipe } from './to-usd.pipe';
+import { TooltipDirective } from './common/directives/tooltip/tooltip.directive';
 
 @NgModule({
   declarations: [
@@ -14,7 +15,8 @@ import { ToUsdPipe } from './to-usd.pipe';
     HeaderComponent,
     CartComponent,
     ProductsFilterPipe,
-    ToUsdPipe
+    ToUsdPipe,
+    TooltipDirective
   ],
   imports: [
     BrowserModule,
