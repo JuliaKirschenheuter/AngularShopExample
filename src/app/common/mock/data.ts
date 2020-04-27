@@ -1,4 +1,5 @@
 import {Observable, of} from "rxjs";
+import {delay} from "rxjs/operators";
 
 export interface IProduct {
   '_id': string;
@@ -92,4 +93,4 @@ export const data: IProduct[] = [
   },
 ];
 
-export const data$: Observable<IProduct[]> = of(data);
+export const data$: Observable<IProduct[]> = of(data).pipe(delay(2000))
