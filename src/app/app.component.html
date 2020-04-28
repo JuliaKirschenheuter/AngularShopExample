@@ -77,7 +77,7 @@
 <section class="main">
   <div class="container">
     <div class="row"
-         *ngIf="products | async  as products;
+         *ngIf="products$ | async  as products;
          else loadingGif">
       <app-cart *ngFor=" let product of products | productsFilter: text; index as i; odd as isOdd "
           [position] = "i+1"

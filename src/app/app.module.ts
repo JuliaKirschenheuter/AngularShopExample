@@ -8,6 +8,9 @@ import { CartComponent } from './cart/cart.component';
 import { ProductsFilterPipe } from './products-filter.pipe';
 import { ToUsdPipe } from './to-usd.pipe';
 import { TooltipDirective } from './common/directives/tooltip/tooltip.directive';
+import {ProductsService} from "./products.service";
+import {HttpClientModule} from "@angular/common/http";
+import {environment} from "../environments/environment";
 
 @NgModule({
   declarations: [
@@ -20,9 +23,19 @@ import { TooltipDirective } from './common/directives/tooltip/tooltip.directive'
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
-  providers: [],
+  providers: [
+    {
+      provide: ProductsService,
+      useClass: ProductsService
+    },
+    {
+      provide: 'BASE_URL',
+      useValue: environment.baseUrl
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
