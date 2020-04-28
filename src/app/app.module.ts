@@ -9,9 +9,10 @@ import { ProductsFilterPipe } from './products-filter.pipe';
 import { ToUsdPipe } from './to-usd.pipe';
 import { TooltipDirective } from './common/directives/tooltip/tooltip.directive';
 import {ProductsService} from "./products.service";
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import {environment} from "../environments/environment";
 import {BASE_URL_TOKEN} from "./config";
+import {CustomInterceptorService} from "./common/services/custom-interceptor.service";
 
 @NgModule({
   declarations: [
@@ -28,6 +29,11 @@ import {BASE_URL_TOKEN} from "./config";
     HttpClientModule
   ],
   providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: CustomInterceptorService,
+      multi: true
+    },
     {
       provide: ProductsService,
       useClass: ProductsService

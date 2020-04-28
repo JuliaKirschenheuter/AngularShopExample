@@ -1,9 +1,7 @@
-import {Inject, Injectable} from '@angular/core';
+import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {IProduct} from "./common/mock/data";
-import {map} from "rxjs/operators";
-import {BASE_URL_TOKEN} from "./config";
 
 @Injectable({
   providedIn: 'root'
@@ -11,15 +9,11 @@ import {BASE_URL_TOKEN} from "./config";
 export class ProductsService {
 
   constructor(
-    private _httpService: HttpClient,
-    @Inject(BASE_URL_TOKEN) private _baseUrl: string
+    private _httpService: HttpClient
   ) {  }
 
   public getProducts(): Observable<IProduct[]> {
-    return this._httpService.get<{data: IProduct[]}>(this._baseUrl)
-      .pipe(
-        map((response: {data: IProduct[]}) => response.data)
-      )
+    return this._httpService.get<IProduct[]>(``)
   }
 
 }
