@@ -11,6 +11,7 @@ import { TooltipDirective } from './common/directives/tooltip/tooltip.directive'
 import {ProductsService} from "./products.service";
 import {HttpClientModule} from "@angular/common/http";
 import {environment} from "../environments/environment";
+import {BASE_URL_TOKEN} from "./config";
 
 @NgModule({
   declarations: [
@@ -32,7 +33,7 @@ import {environment} from "../environments/environment";
       useClass: ProductsService
     },
     {
-      provide: 'BASE_URL',
+      provide: BASE_URL_TOKEN,
       useValue: environment.baseUrl
     }
   ],
