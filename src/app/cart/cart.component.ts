@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {IProduct} from "../common/mock/data";
+import {IProduct} from "../store/reducers/products.reducer";
 
 @Component({
   selector: 'app-cart',
@@ -12,8 +12,6 @@ export class CartComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
-  
 
   @Input()
   public product: IProduct;

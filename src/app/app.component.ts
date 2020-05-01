@@ -1,6 +1,4 @@
-import {Component, OnDestroy, OnInit} from '@angular/core';
-import {data$, IProduct} from "./common/mock/data";
-import {Subject} from "rxjs";
+import {Component, OnInit} from '@angular/core';
 import {ProductsService} from "./products.service";
 
 @Component({

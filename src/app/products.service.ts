@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
-import {IProduct} from "./common/mock/data";
+import {IProduct} from "./store/reducers/products.reducer";
 
 @Injectable({
   providedIn: 'root'

@@ -1,14 +1,6 @@
 import {Observable, of} from "rxjs";
 import {delay} from "rxjs/operators";
-
-export interface IProduct {
-  '_id': string;
-  'title': string;
-  'serial': number;
-  'author': string;
-  'price': number;
-  'src': string;
-}
+import {IProduct} from "../../store/reducers/products.reducer";
 
 export const data: IProduct[] = [
   {
