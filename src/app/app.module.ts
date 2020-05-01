@@ -18,6 +18,8 @@ import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import {reducers} from "./store";
 import {EffectsModule} from "@ngrx/effects";
 import {ProductsEffects} from "./store/effects/products.effect";
+import { ProductComponent } from './header/shopping-cart/product/product.component';
+import { ShoppingCartComponent } from './header/shopping-cart/shopping-cart.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import {ProductsEffects} from "./store/effects/products.effect";
     CartComponent,
     ProductsFilterPipe,
     ToUsdPipe,
-    TooltipDirective
+    TooltipDirective,
+    ProductComponent,
+    ShoppingCartComponent
   ],
   imports: [
     BrowserModule,
