@@ -16,6 +16,8 @@ import {CustomInterceptorService} from "./common/services/custom-interceptor.ser
 import {StoreModule} from "@ngrx/store";
 import {StoreDevtoolsModule} from "@ngrx/store-devtools";
 import {reducers} from "./store";
+import {EffectsModule} from "@ngrx/effects";
+import {ProductsEffects} from "./store/effects/products.effect";
 
 @NgModule({
   declarations: [
@@ -31,6 +33,7 @@ import {reducers} from "./store";
     AppRoutingModule,
     HttpClientModule,
     StoreModule.forRoot(reducers),
+    EffectsModule.forRoot([ProductsEffects]),
     environment.production ? [] : StoreDevtoolsModule.instrument()
   ],
   providers: [
