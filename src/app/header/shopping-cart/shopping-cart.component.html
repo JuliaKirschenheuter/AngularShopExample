@@ -1,9 +1,13 @@
-
 <div class="cartCell">
   <div class="cartCell__link">корзина <span>(0)</span></div>
   <div class="dropCel">
     <ul class="cart">
-      <app-product></app-product>
+      <app-product *ngFor="let product of products$ | async"
+                   [product]=product
+                   (remove)= "removeProduct($event)"
+                   (increment) = "incrementProduct($event)"
+                   (decrement) = "decrementProduct($event)"
+      ></app-product>
     </ul>
     <div class="totalCel">Итого: 3450 грн</div>
   </div>

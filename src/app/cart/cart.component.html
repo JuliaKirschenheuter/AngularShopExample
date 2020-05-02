@@ -14,6 +14,6 @@
          #t="tooltip"
     >Цена:  <strong>{{product.price | toUsd: 66 | number: '1.0-0'}}</strong>
     </div>
-    <button class="catalogItem__btn"> Заказать</button>
+    <button class="catalogItem__btn" (click)="addProductToCart(product)"> Заказать</button>
   </div>
 </div>
