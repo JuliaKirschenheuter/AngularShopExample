@@ -7,7 +7,8 @@ import {
   INCREMENT_PRODUCT_IN_CART,
   REMOVE_PRODUCT_FROM_CART
 } from "../actions/cart.action";
-import {createFeatureSelector} from "@ngrx/store";
+import {createFeatureSelector, createSelector, MemoizedSelector} from "@ngrx/store";
+import {IStore} from "../index";
 
 export interface ICartProduct extends IProduct{
   count: number;
@@ -52,4 +53,21 @@ export function cartReducer(state: EntityState<ICartProduct> = initialState, act
   }
 }
 
-export const { selectAll } = adapter.getSelectors(createFeatureSelector('cart'))
+export const { selectAll } = adapter.getSelectors(createFeatureSelector('cart'));
+
+export const trueProductsCount: MemoizedSelector<IStore, number> = createSelector(
+  selectAll, (products: ICartProduct[]) => {
+    return products.reduce((count: number, product: ICartProduct) => {
+      return count += product.count
+    }, 0)
+  }
+)
+
+export const totalPrice: MemoizedSelector<IStore, number> = createSelector(
+  selectAll, (products: ICartProduct[]) => {
+    return products.reduce((price: number, product: ICartProduct) => {
+      return price += product.price * product.count
+    }, 0)
+  }
+)
+

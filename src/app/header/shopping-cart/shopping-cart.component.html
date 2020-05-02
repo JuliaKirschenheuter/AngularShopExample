@@ -1,5 +1,5 @@
 <div class="cartCell">
-  <div class="cartCell__link">корзина <span>(0)</span></div>
+  <div class="cartCell__link">корзина <span>{{count$ | async}}</span></div>
   <div class="dropCel">
     <ul class="cart">
       <app-product *ngFor="let product of products$ | async"
@@ -9,6 +9,6 @@
                    (decrement) = "decrementProduct($event)"
       ></app-product>
     </ul>
-    <div class="totalCel">Итого: 3450 грн</div>
+    <div class="totalCel">Итого: {{price$ | async}} грн</div>
   </div>
 </div>

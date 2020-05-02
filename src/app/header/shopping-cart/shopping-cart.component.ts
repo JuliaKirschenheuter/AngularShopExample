@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import {Observable} from "rxjs";
-import {ICartProduct, selectAll} from "../../store/reducers/cart.reducer";
+import {ICartProduct, selectAll, totalPrice, trueProductsCount} from "../../store/reducers/cart.reducer";
 import {Store} from "@ngrx/store";
 import {IStore} from "../../store";
 import {
-  AddProductToCart,
   DecrementProductInCart,
   IncrementProductInCart,
   RemoveProductFromCart
@@ -18,13 +17,17 @@ import {
 export class ShoppingCartComponent implements OnInit {
 
   public products$: Observable<ICartProduct[]>
+  public count$: Observable<number>
+  public price$: Observable<number>
 
   public constructor(
     private _store: Store<IStore>
   ) { }
 
   public ngOnInit(): void {
-    this.products$ = this._store.select(selectAll)
+    this.products$ = this._store.select(selectAll);
+    this.count$ = this._store.select(trueProductsCount);
+    this.price$ = this._store.select(totalPrice);
   }
 
   public removeProduct(product: ICartProduct) {
