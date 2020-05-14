@@ -27,6 +27,7 @@ import { ProductListComponent } from './content/products/product-list/product-li
 import { OneProductComponent } from './content/products/one-product/one-product.component';
 import {ResolveService} from "./content/products/one-product/resolve.service";
 import {CurrentProductEffects} from "./store/effects/current-product.effect";
+import {CustomPreloadService} from "./common/services/custom-preload.service";
 
 @NgModule({
   declarations: [
@@ -46,7 +47,7 @@ import {CurrentProductEffects} from "./store/effects/current-product.effect";
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, {preloadingStrategy: CustomPreloadService}),
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([ProductsEffects, CurrentProductEffects]),
     environment.production ? [] : StoreDevtoolsModule.instrument()
