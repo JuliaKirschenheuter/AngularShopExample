@@ -24,6 +24,8 @@ import {RouterModule} from "@angular/router";
 import {routes} from "./routes";
 import { ProductsComponent } from './content/products/products.component';
 import { SignupComponent } from './content/signup/signup.component';
+import { ProductListComponent } from './content/products/product-list/product-list.component';
+import { OneProductComponent } from './content/products/one-product/one-product.component';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,9 @@ import { SignupComponent } from './content/signup/signup.component';
     ProductComponent,
     ShoppingCartComponent,
     ProductsComponent,
-    SignupComponent
+    SignupComponent,
+    ProductListComponent,
+    OneProductComponent
   ],
   imports: [
     BrowserModule,

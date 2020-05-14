@@ -1,17 +1,2 @@
-<section class="main">
-  <div class="container">
-    <div class="row"
-         *ngIf="products$ | async  as products;
-         else loadingGif">
-      <app-cart *ngFor=" let product of products; index as i; odd as isOdd "
-                [position] = "i+1"
-                [isOdd] = "isOdd"
-                [product]="product">
-      </app-cart>
-    </div>
-  </div>
-</section>
-
-<ng-template #loadingGif>
-  ...loading
-</ng-template>
+<h3>Product section</h3>
+<router-outlet></router-outlet>
