@@ -38,7 +38,8 @@ export const routes: Route[] = [
   },
   {
     path: 'registration',
-    component: SignupComponent
+    loadChildren: () => import('./content/signup/signup.module')
+      .then((m) => m.SignupModule)
   },
   {
     path: '**',

@@ -23,7 +23,6 @@ import { ShoppingCartComponent } from './header/shopping-cart/shopping-cart.comp
 import {RouterModule} from "@angular/router";
 import {routes} from "./routes";
 import { ProductsComponent } from './content/products/products.component';
-import { SignupComponent } from './content/signup/signup.component';
 import { ProductListComponent } from './content/products/product-list/product-list.component';
 import { OneProductComponent } from './content/products/one-product/one-product.component';
 import {ResolveService} from "./content/products/one-product/resolve.service";
@@ -40,7 +39,6 @@ import {CurrentProductEffects} from "./store/effects/current-product.effect";
     ProductComponent,
     ShoppingCartComponent,
     ProductsComponent,
-    SignupComponent,
     ProductListComponent,
     OneProductComponent
   ],
