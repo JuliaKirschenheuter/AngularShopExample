@@ -26,6 +26,8 @@ import { ProductsComponent } from './content/products/products.component';
 import { SignupComponent } from './content/signup/signup.component';
 import { ProductListComponent } from './content/products/product-list/product-list.component';
 import { OneProductComponent } from './content/products/one-product/one-product.component';
+import {ResolveService} from "./content/products/one-product/resolve.service";
+import {CurrentProductEffects} from "./store/effects/current-product.effect";
 
 @NgModule({
   declarations: [
@@ -48,7 +50,7 @@ import { OneProductComponent } from './content/products/one-product/one-product.
     HttpClientModule,
     RouterModule.forRoot(routes),
     StoreModule.forRoot(reducers),
-    EffectsModule.forRoot([ProductsEffects]),
+    EffectsModule.forRoot([ProductsEffects, CurrentProductEffects]),
     environment.production ? [] : StoreDevtoolsModule.instrument()
   ],
   providers: [
@@ -60,6 +62,10 @@ import { OneProductComponent } from './content/products/one-product/one-product.
     {
       provide: ProductsService,
       useClass: ProductsService
+    },
+    {
+      provide: ResolveService,
+      useClass: ResolveService
     },
     {
       provide: BASE_URL_TOKEN,

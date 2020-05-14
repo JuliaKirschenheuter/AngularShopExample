@@ -3,15 +3,18 @@ import {IProduct, productsReducer} from "./reducers/products.reducer";
 import {cartReducer, ICartProduct} from "./reducers/cart.reducer";
 import {EntityState} from "@ngrx/entity";
 import {IUser, userReducer} from "./reducers/user.reducer";
+import {currentProductReducer} from "./reducers/current-product.reducer";
 
 export interface IStore {
   products: IProduct[],
   cart: EntityState<ICartProduct>,
-  user: IUser
+  user: IUser;
+  currentProduct: IProduct;
 }
 
 export const reducers: ActionReducerMap<any> =  {
   products: productsReducer,
   cart: cartReducer,
-  user: userReducer
+  user: userReducer,
+  currentProduct: currentProductReducer
 }

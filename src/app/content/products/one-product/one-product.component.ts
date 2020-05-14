@@ -23,7 +23,7 @@ export class OneProductComponent implements OnInit {
       console.log(fragment)
     })
     this._activatedRoute.data.subscribe((data: Data) => {
-      console.log(data.title);
+      console.log(data.product);
     })
 
   }
