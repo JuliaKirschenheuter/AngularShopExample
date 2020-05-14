@@ -20,7 +20,10 @@ export const routes: Route[] = [
         component: ProductListComponent
       }, {
         path: ':id',
-        component: OneProductComponent
+        component: OneProductComponent,
+        data: {
+          title: 'One product page'
+        }
       }, {
         path: '**',
         redirectTo: '/registration'
