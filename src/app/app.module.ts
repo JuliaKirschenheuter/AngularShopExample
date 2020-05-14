@@ -20,6 +20,10 @@ import {EffectsModule} from "@ngrx/effects";
 import {ProductsEffects} from "./store/effects/products.effect";
 import { ProductComponent } from './header/shopping-cart/product/product.component';
 import { ShoppingCartComponent } from './header/shopping-cart/shopping-cart.component';
+import {RouterModule} from "@angular/router";
+import {routes} from "./routes";
+import { ProductsComponent } from './content/products/products.component';
+import { SignupComponent } from './content/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -30,12 +34,15 @@ import { ShoppingCartComponent } from './header/shopping-cart/shopping-cart.comp
     ToUsdPipe,
     TooltipDirective,
     ProductComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    ProductsComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    RouterModule.forRoot(routes),
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([ProductsEffects]),
     environment.production ? [] : StoreDevtoolsModule.instrument()

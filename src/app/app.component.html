@@ -2,21 +2,5 @@
   <img class="site-logo" [src]="logo" />
 </app-header>
 
+<router-outlet></router-outlet>
 
-<section class="main">
-  <div class="container">
-    <div class="row"
-         *ngIf="products$ | async  as products;
-         else loadingGif">
-      <app-cart *ngFor=" let product of products | productsFilter: text; index as i; odd as isOdd "
-          [position] = "i+1"
-          [isOdd] = "isOdd"
-          [product]="product">
-        </app-cart>
-    </div>
-  </div>
-</section>
-
-<ng-template #loadingGif>
-  ...loading
-</ng-template>
