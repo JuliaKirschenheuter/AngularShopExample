@@ -5,10 +5,15 @@
         <div class="registration-wrapper">
           <h1>Регистрация</h1>
           <form action="">
-            <label class="input-wrapper no-valid">
+            <label class="input-wrapper" [ngClass]="{'no-valid': c.invalid}" >
               <span>Ваше имя</span>
-              <input type="text">
-              <div class="valid-message">Введите корректное имя</div>
+              <input type="text"
+                     ngModel #c="ngModel"
+                     [ngModelOptions]="{standalone: true}"
+                     required
+                     minlength="4"
+              >
+              <div class="valid-message" *ngIf="c.invalid">Введите корректное имя</div>
             </label>
             <label class="input-wrapper">
               <span>Ваша фамилия</span>
@@ -48,4 +53,5 @@
       </div>
     </div>
   </div>
+  <pre>{{c.valueChanges | async}}</pre>
 </section>
