@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
+import {FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -7,9 +8,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupComponent implements OnInit {
 
-  constructor() { }
+  public control: FormControl;
+
+  constructor(
+    private _cd: ChangeDetectorRef
+  ) { }
 
   ngOnInit(): void {
+    this.control = new FormControl('', [Validators.required, Validators.minLength(6)]);
+    this._cd.detectChanges();
   }
 
 }

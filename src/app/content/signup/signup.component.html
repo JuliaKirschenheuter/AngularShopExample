@@ -15,9 +15,10 @@
               >
               <div class="valid-message" *ngIf="c.invalid">Введите корректное имя</div>
             </label>
-            <label class="input-wrapper">
+            <label class="input-wrapper" [ngClass]="{'no-valid': control.invalid}" >
               <span>Ваша фамилия</span>
-              <input type="text">
+              <input type="text" [formControl]="control">
+              <div class="valid-message" *ngIf="control.invalid">Введите корректную фамилию</div>
             </label>
             <label class="input-wrapper">
               <span>Ваш e-mail</span>
