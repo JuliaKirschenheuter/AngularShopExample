@@ -1,5 +1,7 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
 import {AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators} from '@angular/forms';
+import {of} from 'rxjs';
+import {delay} from 'rxjs/operators';
 
 @Component({
   selector: 'app-signup',
@@ -20,7 +22,7 @@ export class SignupComponent implements OnInit {
 
     this.customForm = this._fb.group({
       firstName: ['', [Validators.required, Validators.minLength(4), this.nameValidator]],
-      lastName: ['', [Validators.required, Validators.minLength(4)]],
+      lastName: ['', [Validators.required, Validators.minLength(4)], [this.asyncNameValidator]],
       passwordGroup: this._fb.group({
         password: ['', [Validators.required, Validators.minLength(4)]],
         cpassword: ['', [Validators.required, Validators.minLength(4)]],
@@ -49,6 +51,16 @@ export class SignupComponent implements OnInit {
       nospecial: "nur Buchstaben!",
     };
     return err;
+  }
+
+  public asyncNameValidator({value}: FormControl): ValidationErrors | null {
+    const valid: boolean = /^[a-zA-Z]*$/.test(value);
+    const err: ValidationErrors | null = valid ? null : {
+      nospecial: "nur Buchstaben!",
+    };
+    return of(err).pipe(
+      delay(1000)
+    );
   }
 
 
