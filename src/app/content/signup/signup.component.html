@@ -16,14 +16,25 @@
               <input type="text" formControlName="lastName">
               <div class="valid-message" *ngIf="customForm.get('lastName').invalid">Введите корректную фамилию</div>
             </label>
-            <label class="input-wrapper">
-              <span>Ваш e-mail</span>
-              <input type="email"
-                     ngModel
-                     name="email"
-                     required
-              >
-            </label>
+            <div formGroupName="passwordGroup">
+              <label class="input-wrapper">
+                <span>Ваш e-mail</span>
+                <input type="email"
+                       formControlName="password"
+                       ngModel
+                       name="email"
+                       required
+                >
+                <span>Повтор e-mail</span>
+                <input type="email"
+                       formControlName="cpassword"
+                       ngModel
+                       name="email"
+                       required
+                >
+              </label>
+            </div>
+
             <label class="input-wrapper">
               <span>Пароль</span>
               <input type="password">
