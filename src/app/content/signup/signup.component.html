@@ -4,41 +4,38 @@
       <div class="col-lg-12">
         <div class="registration-wrapper">
           <h1>Регистрация</h1>
-          <form [formGroup]="customForm" >
-            <label class="input-wrapper" [ngClass]="{'no-valid': customForm.get('firstName').invalid}" >
+          <form #f="ngForm">
+            <label class="input-wrapper">
               <span>Ваше имя</span>
-              <input type="text" [formControl]="customForm.get('firstName')"
+              <input type="text" ngModel name="firstName"
               >
-              <div class="valid-message" *ngIf="customForm.get('firstName').invalid">Введите корректное имя</div>
+              <div class="valid-message">Введите корректное имя</div>
             </label>
-            <label class="input-wrapper"  [ngClass]="{'no-valid': customForm.get('lastName').invalid}">
+            <label class="input-wrapper">
               <span>Ваша фамилия</span>
-              <input type="text" formControlName="lastName">
-              <div class="valid-message" *ngIf="customForm.get('lastName').invalid">Введите корректную фамилию</div>
+              <input type="text" ngModel name="lastName">
+              <div class="valid-message">Введите корректную фамилию</div>
             </label>
-            <div formGroupName="passwordGroup">
+            <label class="input-wrapper">
+              <span>Ваш e-mail</span>
+              <input type="email"
+                     ngModel
+                     name="email"
+                     required
+              >
+            </label>
+
+            <div ngModelGroup="passwordGroup">
               <label class="input-wrapper">
-                <span>Ваш e-mail</span>
-                <input type="email"
-                       formControlName="password"
-                       ngModel
-                       name="email"
-                       required
-                >
-                <span>Повтор e-mail</span>
-                <input type="email"
-                       formControlName="cpassword"
-                       ngModel
-                       name="email"
-                       required
-                >
+                <span>Пароль</span>
+                <input ngModel name="password" type="password">
+              </label>
+              <label class="input-wrapper"
+              >
+                <span>Повторить пароль</span>
+                <input ngModel name="cpassword"  type="password">
               </label>
             </div>
-
-            <label class="input-wrapper">
-              <span>Пароль</span>
-              <input type="password">
-            </label>
             <div class="btn-wrapper">
               <button>Зарегистрироваться</button>
             </div>
@@ -65,5 +62,5 @@
       </div>
     </div>
   </div>
-  <pre>{{customForm.value | json}}</pre>
+  <pre>{{f.value | json}}</pre>
 </section>
