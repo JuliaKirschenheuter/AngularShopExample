@@ -1,5 +1,5 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import {AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {AbstractControl, FormArray, FormBuilder, FormControl, FormGroup, ValidationErrors, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -19,7 +19,7 @@ export class SignupComponent implements OnInit {
   ngOnInit(): void {
 
     this.customForm = this._fb.group({
-      firstName: ['', [Validators.required, Validators.minLength(4)]],
+      firstName: ['', [Validators.required, Validators.minLength(4), this.nameValidator]],
       lastName: ['', [Validators.required, Validators.minLength(4)]],
       passwordGroup: this._fb.group({
         password: ['', [Validators.required, Validators.minLength(4)]],
@@ -42,5 +42,14 @@ export class SignupComponent implements OnInit {
   public getControls(control: AbstractControl, path: string): AbstractControl[] {
     return (control.get(path) as FormArray).controls;
   }
+
+  public nameValidator({value}: FormControl): ValidationErrors | null {
+    const valid: boolean = /^[a-zA-Z]*$/.test(value);
+    const err: ValidationErrors | null = valid ? null : {
+      nospecial: "nur Buchstaben!",
+    };
+    return err;
+  }
+
 
 }
