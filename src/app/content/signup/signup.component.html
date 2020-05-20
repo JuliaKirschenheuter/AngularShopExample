@@ -18,9 +18,13 @@
             </label>
             <label class="input-wrapper">
               <span>Ваш e-mail</span>
-              <input type="email"  required>
+              <ul formGroupName="emails">
+                <li *ngFor="let e of getControls(customForm, 'emails'); index as i">
+                  <input type="email" [formControlName]="i">
+                  <span (click)="removeEmail(i)">x</span>
+                </li>
+              </ul>
             </label>
-
             <div formGroupName="passwordGroup">
               <label class="input-wrapper">
                 <span>Пароль</span>
@@ -36,6 +40,7 @@
               <button>Зарегистрироваться</button>
             </div>
           </form>
+          <button (click)="addEmail()">Add email</button>
         </div>
       </div>
     </div>
