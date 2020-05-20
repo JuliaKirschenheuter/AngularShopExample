@@ -1,5 +1,5 @@
 import {ChangeDetectorRef, Component, OnInit} from '@angular/core';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-signup',
@@ -12,17 +12,18 @@ export class SignupComponent implements OnInit {
   public customForm: FormGroup;
 
   constructor(
-    private _cd: ChangeDetectorRef
+    private _cd: ChangeDetectorRef,
+    private _fb: FormBuilder
   ) { }
 
   ngOnInit(): void {
 
-    this.customForm = new FormGroup({
-      firstName: new FormControl('', [Validators.required, Validators.minLength(4)]),
-      lastName: new FormControl('', [Validators.required, Validators.minLength(6)]),
-      passwordGroup: new FormGroup({
-        password: new FormControl('', [Validators.required, Validators.minLength(4)]),
-        cpassword: new FormControl('', [Validators.required, Validators.minLength(4)])
+    this.customForm = this._fb.group({
+      firstName: ['', [Validators.required, Validators.minLength(4)]],
+      lastName: ['', [Validators.required, Validators.minLength(4)]],
+      passwordGroup: this._fb.group({
+        password: ['', [Validators.required, Validators.minLength(4)]],
+        cpassword: ['', [Validators.required, Validators.minLength(4)]],
       })
     });
 
