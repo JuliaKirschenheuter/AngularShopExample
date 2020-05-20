@@ -1,4 +1,4 @@
-import {Directive, ElementRef, Input, OnInit, Renderer2} from '@angular/core';
+import {Directive, ElementRef, HostListener, Input, OnInit, Renderer2} from '@angular/core';
 
 @Directive({
   selector: '[appTooltip]',
@@ -32,6 +32,11 @@ export class TooltipDirective implements OnInit{
   ngOnInit(): void {
     this._render.addClass(this._tooltipContext, 'tooltiptext');
     this._render.appendChild(this._elementRef.nativeElement, this._tooltipContext);
+  }
+
+  @HostListener('document:keyup.escape')
+  public tooltipHide(): void {
+    this.hide();
   }
 
 }
