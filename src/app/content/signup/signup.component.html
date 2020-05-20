@@ -17,6 +17,10 @@
               <div class="valid-message" *ngIf="customForm.get('lastName').invalid">Введите корректную фамилию</div>
             </label>
             <label class="input-wrapper">
+              <span>Мужчина</span>
+              <app-switcher formControlName="male"></app-switcher>
+            </label>
+            <label class="input-wrapper">
               <span>Ваш e-mail</span>
               <ul formGroupName="emails">
                 <li *ngFor="let e of getControls(customForm, 'emails'); index as i">
@@ -63,5 +67,5 @@
       </div>
     </div>
   </div>
-  <pre>{{customForm.get('lastName').errors | json}}</pre>
+  <pre>{{customForm.value | json}}</pre>
 </section>

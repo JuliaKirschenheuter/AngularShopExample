@@ -23,6 +23,7 @@ export class SignupComponent implements OnInit {
     this.customForm = this._fb.group({
       firstName: ['', [Validators.required, Validators.minLength(4), this.nameValidator]],
       lastName: ['', [Validators.required, Validators.minLength(4)], [this.asyncNameValidator]],
+      male: [true],
       passwordGroup: this._fb.group({
         password: ['', [Validators.required, Validators.minLength(4)]],
         cpassword: ['', [Validators.required, Validators.minLength(4)]],
