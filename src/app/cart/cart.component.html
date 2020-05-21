@@ -10,7 +10,7 @@
     <div class="catalogItem__code">Артикул: {{product.serial}}</div>
     <div class="catalogItem__brand">Бренд: {{product.author}}</div>
     <div class="catalogItem__prices"
-         [appTooltip]="product.price"
+         [app Tooltip]="product.price"
          #t="tooltip"
     >Цена:  <strong>{{product.price | number: '1.0-0'}}</strong>
     </div>
