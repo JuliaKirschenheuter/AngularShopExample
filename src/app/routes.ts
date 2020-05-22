@@ -4,6 +4,7 @@ import {SignupComponent} from "./content/signup/signup.component";
 import {ProductListComponent} from "./content/products/product-list/product-list.component";
 import {OneProductComponent} from "./content/products/one-product/one-product.component";
 import {ResolveService} from "./content/products/one-product/resolve.service";
+import {CdComponent} from './content/cd/cd.component';
 
 
 export const routes: Route[] = [
@@ -40,6 +41,10 @@ export const routes: Route[] = [
     path: 'registration',
     loadChildren: () => import('./content/signup/signup.module')
       .then((m) => m.SignupModule)
+  },
+  {
+    path: 'cd',
+    component: CdComponent
   },
   {
     path: '**',

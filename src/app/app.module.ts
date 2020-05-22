@@ -28,6 +28,10 @@ import { OneProductComponent } from './content/products/one-product/one-product.
 import {ResolveService} from "./content/products/one-product/resolve.service";
 import {CurrentProductEffects} from "./store/effects/current-product.effect";
 import {CustomPreloadService} from "./common/services/custom-preload.service";
+import { CdComponent } from './content/cd/cd.component';
+import { DefaultComponent } from './content/cd/default/default.component';
+import { OnPushComponent } from './content/cd/on-push/on-push.component';
+import {FormsModule} from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -41,7 +45,10 @@ import {CustomPreloadService} from "./common/services/custom-preload.service";
     ShoppingCartComponent,
     ProductsComponent,
     ProductListComponent,
-    OneProductComponent
+    OneProductComponent,
+    CdComponent,
+    DefaultComponent,
+    OnPushComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +57,8 @@ import {CustomPreloadService} from "./common/services/custom-preload.service";
     RouterModule.forRoot(routes, {preloadingStrategy: CustomPreloadService}),
     StoreModule.forRoot(reducers),
     EffectsModule.forRoot([ProductsEffects, CurrentProductEffects]),
-    environment.production ? [] : StoreDevtoolsModule.instrument()
+    environment.production ? [] : StoreDevtoolsModule.instrument(),
+    FormsModule
   ],
   providers: [
     {
