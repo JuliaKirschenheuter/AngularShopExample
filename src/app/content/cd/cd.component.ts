@@ -22,6 +22,15 @@ export class CdComponent implements OnInit {
   ngOnInit(): void {
     this.person1 = new Person('first', 'name1');
     this.person2 = new Person('second', 'name2');
+
+    setTimeout(() => {
+      this.person1.lastName = 'new name'
+    }, 5000);
+
+    // no changes to expect
+    // setTimeout(() => {
+    //   this.person2.lastName = 'new name'
+    // }, 5000);
   }
 
 }
