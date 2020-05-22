@@ -24,13 +24,13 @@ export class CdComponent implements OnInit {
     this.person2 = new Person('second', 'name2');
 
     setTimeout(() => {
-      this.person1.lastName = 'new name'
+      this.person2 = new Person('new second', 'new name2');
     }, 5000);
 
-    // no changes to expect
-    // setTimeout(() => {
-    //   this.person2.lastName = 'new name'
-    // }, 5000);
+    setTimeout(() => {
+      this.person2 = new Person('Ivan', 'Petrov');
+    }, 15000);
+
   }
 
 }

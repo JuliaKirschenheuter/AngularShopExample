@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, Input, OnInit} from '@angular/core';
+import {ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit} from '@angular/core';
 import {Person} from '../cd.component';
 
 @Component({
@@ -12,10 +12,20 @@ export class OnPushComponent implements OnInit {
   @Input()
   public person: Person;
 
-  constructor() { }
+  constructor(
+    private _cd: ChangeDetectorRef
+  ) { }
 
   ngOnInit(): void {
+    setTimeout(() => {
+      this._cd.detach()
+    }, 2000);
+
+    setTimeout(() => {
+      this._cd.reattach()
+    }, 10000)
   }
+
 
 
 }
